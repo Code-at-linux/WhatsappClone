@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+</head>
+<body>
+    <div>
+        <!-- it is for refreshing the page -->
+        <form action="/chat" method="post">
+            <input type="text" name="user" id="user" value="<%= user %>" hidden>
+            <input type="text" name="friend" id="friend" value="<%= friend %>" hidden>
+            <button type="submit"><h1><%= friend %></h1></button>
+        </form>
+        <% for (let i = 0; i < chat.length; i++) { %>
+            <p style="text-align: <%= chat[i].status %>;"><%= chat[i].message %></p>
+        <% } %>
+        <form action="/message/post" method="post">
+            <input type="text" name="user" id="user" value="<%= user %>" hidden>
+            <input type="text" name="friend" id="friend" value="<%= friend %>" hidden>
+            <div style="display: flex; align-items: end; height: 80vh; justify-content: center;">
+                <input type="text" name="message" id="message" style="width: 90%;">
+                <input type="submit" value="Send">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
